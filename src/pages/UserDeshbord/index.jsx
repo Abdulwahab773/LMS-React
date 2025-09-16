@@ -36,7 +36,7 @@ let uid =localStorage.getItem("uid")
       UserFatherName: FatherName,       
       UserAddress: address,
       UserCity: city,
-      UserCNIC: CNIC,
+      UserCNIC: cnic,
       UserCountry: country,
       UserDOB: dob,
       UserEmail: email,
