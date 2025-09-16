@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-
+import { getAuth } from "firebase/auth";
 const firebaseConfig = {
   apiKey: "AIzaSyBfDrWEhV1pCo6M491alKT6lxg4rmzIGT0",
   authDomain: "lms-react-59538.firebaseapp.com",
@@ -10,3 +10,11 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+
+export{
+app,
+auth
+
+}
