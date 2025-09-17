@@ -6,8 +6,11 @@ import AuthRoute from './Routes/AuthRoute'
 import SingUpPage from './pages/singup'
 import AdminDeshbord from './pages/Admin/AdminDeshbord'
 import PrivateRoute from './Routes/PrivateRoute'
-import UserDeshbord from './pages/UserDeshbord'
 import NotFound from './pages/NotFound/NotFound'
+import UserCourse from './pages/UserCourse'
+import AllCourses from './pages/UserCourse/AllCourses'
+import UserCourses from './pages/UserDeshbord/UserCourses'
+import UserDeshbord from './pages/UserDeshbord'
 
 
 const App = () => {
@@ -23,12 +26,15 @@ const App = () => {
 
 <Route  element={<AuthRoute />}>
   
-  <Route  index element={<LoginPage />}  />
+  <Route  path="/login" element={<LoginPage />}  />
   <Route  path="/Signup" element={<SingUpPage  />}  />
 
 </Route>
 
 <Route  path="*" element={<NotFound  />}  />
+<Route  index element={<UserCourse  />}  />
+<Route  path='/All-Courses' element={<AllCourses />} />
+
 
 
 
@@ -36,6 +42,8 @@ const App = () => {
 
 
 <Route  path='/UserDeshbord'  element={<UserDeshbord /> }/>
+<Route path='/userCourses' element={<UserCourses />} />
+
 
 </Route>
 

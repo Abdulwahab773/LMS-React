@@ -1,9 +1,9 @@
 import React from 'react'
 
-const InputCmp = ({onChange,placeholder ,type="text"}) => {
+const InputCmp = ({onChange,placeholder ,type="text",value}) => {
   return (
     <>
-      <input  type={type} placeholder={placeholder} onChange={onChange}  />
+      <input  value={value} type={type} placeholder={placeholder} onChange={onChange}  />
     </>
   )
 }
