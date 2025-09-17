@@ -19,7 +19,7 @@ let navigator = useNavigate()
       const user = userCredential.user.uid;
       localStorage.setItem("uid", user);
       console.log("Login Successful:", user);
-      navigator("/UserDeshbord")
+      navigator("/")
      
     
     })
