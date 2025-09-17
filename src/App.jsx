@@ -1,6 +1,14 @@
-import "./App.css";
+import React from "react";
+import { Route, Router, Routes } from "react-router-dom";
+import LoginPage from "./pages/login";
+import AuthRoute from "./Routes/AuthRoute";
+import SingUpPage from "./pages/singup";
+import AdminDeshbord from "./pages/Admin";
+import PrivateRoute from "./Routes/PrivateRoute";
+import UserDeshbord from "./pages/UserDeshbord";
+import NotFound from "./pages/NotFound/NotFound";
 
-function App() {
+const App = () => {
   return (
     <>
       <Routes>
@@ -17,6 +25,6 @@ function App() {
       </Routes>
     </>
   );
-}
+};
 
 export default App;
