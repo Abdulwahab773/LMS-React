@@ -10,7 +10,7 @@ const UserDeshbord = () => {
 let [FatherName ,setFatherName] = useState("")
 let [address ,setaddress] = useState("")
 let [city ,setcity] = useState("")
-let [CNIC ,setCNIC] = useState("")
+let [cnic ,setCNIC] = useState("")
 let [country ,setcountry] = useState("")
 let [dob ,setdob] = useState("")
 let [email ,setemail] = useState("")
@@ -23,7 +23,7 @@ let [studentImg ,setstudentImg] = useState("")
 
 let addUserForm =async ()=>{
 
-  if (!FatherName || !address || !city || !CNIC || !country || !dob || !email || !gender || !lastQualification || !studentImg) {
+  if (!FatherName || !address || !city || !cnic || !country || !dob || !email || !gender || !lastQualification || !studentImg) {
     alert("⚠ Please fill all fields before submitting.");
     return;
   }
@@ -36,14 +36,15 @@ let uid =localStorage.getItem("uid")
       UserFatherName: FatherName,       
       UserAddress: address,
       UserCity: city,
-      UserCNIC: CNIC,
+      UserCNIC: cnic,
       UserCountry: country,
       UserDOB: dob,
       UserEmail: email,
       UserGender: gender,
       UserLastQualification: lastQualification,
       UserStudentImg: studentImg,
-    useruid :uid
+    useruid :uid,
+    UsreName :Name    
     });
 
 
