@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import InputCmp from '../../components/inputFieldCmp'
 import { addDoc, collection } from 'firebase/firestore'
 import { db } from '../../firebase'
@@ -18,6 +18,15 @@ let [Name ,setName] = useState("")
 let [gender ,setgender] = useState("")
 let [lastQualification ,setlastQualification] = useState("")
 let [studentImg ,setstudentImg] = useState("")
+
+
+let [userCourseSelected ,setUserCourseSelected] = useState("")
+let selectCorse = localStorage.getItem("user-Course-Select")
+useEffect(()=>{
+      setUserCourseSelected(selectCorse)
+      
+
+},)
 
 
 
@@ -44,7 +53,8 @@ let uid =localStorage.getItem("uid")
       UserLastQualification: lastQualification,
       UserStudentImg: studentImg,
     useruid :uid,
-    UsreName :Name    
+    UsreName :Name,
+    userCourseSelect: userCourseSelected    
     });
 
 
@@ -66,7 +76,10 @@ console.log(docRef);
   return (
     <div>
 
+<InputCmp value={userCourseSelected} readOnly onChange={()=>{
+      console.log("add course  name ");
       
+}} />
 
 <InputCmp  
   placeholder="Enter Your FatherName"  
@@ -81,7 +94,7 @@ setaddress(e.target.value)
 setcity(e.target.value)
         
       }}   />
-      <InputCmp  placeholder="Enter Your CNIC" onChange={(e)=>{
+      <InputCmp  type={"number"} placeholder="Enter Your CNIC" onChange={(e)=>{
 setCNIC(e.target.value)
         
       }}   />
