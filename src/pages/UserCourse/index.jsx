@@ -13,6 +13,8 @@ const UserCourse = () => {
 
  useEffect(()=>{
     getCoursesUser()
+    
+    
  },[])
  
 
@@ -37,34 +39,41 @@ const UserCourse = () => {
 
 console.log(courses);
 const uid = localStorage.getItem("uid"); 
-let Enrolled = ()=>{
+let Enrolled = (course)=>{
     if (!uid) {
         console.log("User not logged in, UID missing");
         navigate("/login")
       }else{
         console.log("userLogin");
-        navigate("/userCourses")
+        localStorage.setItem("user-Course-Select", course.name);
+        navigate("/EnrolledFrom")
         
       }
 }
+console.log(courses.name);
+
+
+
 
   return (
     <>
 
 
-      {courses.length > 0 ? (
-  courses.map((userFor, i) => (
-    <div key={i} >
-      <img src={userFor.Image || "default-image.png"} alt="Student Image" />
-      <h1>Courses Name: {userFor.name}</h1>
-      <h1>Course fees: {userFor.Fees}</h1>
-      <p>courses Description : {userFor.Description}</p>
-      <ButtonCmp  title='Enrolled' onClick={Enrolled} />
-    </div>
-  ))
-) : (
-  <p>No student courses  found.</p>
-)}
+{courses.length > 0 ? (
+        courses.map((course, i) => (
+          <div key={i}>
+            <img src={course.Image || "default-image.png"} alt="Course" />
+            <h1>Course Name: {course.name}</h1>
+            <h1>Course Fees: {course.Fees}</h1>
+            <p>Course Description: {course.Description}</p>
+            
+            
+            <ButtonCmp title="Enrolled" onClick={() => Enrolled(course)} />
+          </div>
+        ))
+      ) : (
+        <p>No student courses found.</p>
+      )}
 
 <ButtonCmp  title='view all courses' onClick={()=>{
 navigate("/All-Courses")
