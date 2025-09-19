@@ -11,6 +11,7 @@ import AllCourses from './pages/UserCourse/AllCourses'
 import LandingPage from './pages/landing page'
 import EnrolledFrom from './pages/UserDeshbord/EnrolledFrom'
 import UserDeshbord from './pages/UserDeshbord/UserDeshbord'
+import UpdateUserProfile from './pages/update/updateUserProfile'
 
 
 const App = () => {
@@ -44,6 +45,7 @@ const App = () => {
 <Route  path='UserCourse'  element={<UserCourse  />}  />
 <Route path="/UserDeshbord"  element={<UserDeshbord />} />
 <Route  path='/EnrolledFrom'  element={<EnrolledFrom /> }/>
+<Route path='/updateUserProfile' element={<UpdateUserProfile/> } />
 
 
 </Route>
