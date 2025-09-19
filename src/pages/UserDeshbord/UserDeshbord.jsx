@@ -119,7 +119,7 @@ navigator("/UserCourse")
 <ButtonCmp title='sing out ' onClick={handleLogout}/>
 
 <ButtonCmp  title='edit profile' onClick={()=>{
-  navigator()
+  navigator("/updateUserProfile")
 }} />
 
 
