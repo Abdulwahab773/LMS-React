@@ -8,7 +8,7 @@ const AllCourses = () => {
 
 
 
-    let [allCourses ,setAllCourses] = useState("")
+    let [allCourses ,setAllCourses] = useState([])
     let navigate = useNavigate()
 
 
@@ -23,8 +23,8 @@ useEffect(()=>{
           const tempArr = [];
           querySnapshot.forEach((doc) => {
             tempArr.push(doc.data());
-            setAllCourses(tempArr);
           });
+          setAllCourses(tempArr);
         });
       };
       const uid = localStorage.getItem("uid"); 
@@ -35,7 +35,7 @@ useEffect(()=>{
             navigate("/login")
           }else{
             console.log("userLogin");
-            localStorage.setItem("user-Course-Select", course.name);
+            localStorage.setItem("user-Course-Select", course.courseName);
             navigate("/EnrolledFrom")
             
           }
@@ -52,9 +52,9 @@ useEffect(()=>{
   allCourses.map((course, i) => (
     <div key={i}>
       <img src={course.Image || "default-image.png"} alt="Course Image" />
-      <h1>Course Name: {course.name}</h1>
-      <h1>Course Fees: {course.Fees}</h1>
-      <p>Course Description: {course.Description}</p>
+      <h1>Course Name: {course.courseName}</h1>
+      <h1>Course Fees: {course.courseFees}</h1>
+      <p>Course Description: {course.courseDesc}</p>
 
       <ButtonCmp title="Enrolled" onClick={() => Enrolled(course)} />
     </div>

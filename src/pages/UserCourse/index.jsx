@@ -45,7 +45,7 @@ let Enrolled = (course)=>{
         navigate("/login")
       }else{
         console.log("userLogin");
-        localStorage.setItem("user-Course-Select", course.name);
+        localStorage.setItem("user-Course-Select", course);
         navigate("/EnrolledFrom")
         
       }
@@ -63,12 +63,12 @@ console.log(courses.name);
         courses.map((course, i) => (
           <div key={i}>
             <img src={course.Image || "default-image.png"} alt="Course" />
-            <h1>Course Name: {course.name}</h1>
-            <h1>Course Fees: {course.Fees}</h1>
-            <p>Course Description: {course.Description}</p>
+            <h1>Course Name: {course.courseName}</h1>
+            <h1>Course Fees: {course.courseFees}</h1>
+            <p>Course Description: {course.courseDesc}</p>
             
             
-            <ButtonCmp title="Enrolled" onClick={() => Enrolled(course)} />
+            <ButtonCmp title="Enrolled" onClick={() => Enrolled(course.courseName)} />
           </div>
         ))
       ) : (
